@@ -96,7 +96,7 @@ INSERT INTO `customers` (`id`, `fullname`, `address`, `phone`, `created_at`) VAL
 (27, 'Dr. Juana Smitham MD', 'Wyoming', '+63 981-066-6318', '2021-12-06 08:12:27'),
 (28, 'Sandy Mertz', 'Jerdetown', '+63 963-295-5765', '2018-10-05 02:10:45'),
 (29, 'Bethany Bahringer', 'New Cliffordville', '+63 910-482-5347', '0000-00-00 00:00:00'),
-(30, 'Rachael O\'Conner', 'Emmahaven', '+63 983-279-8130', '0000-00-00 00:00:00'),
+(30, 'Rachael OConner', 'Emmahaven', '+63 983-279-8130', '0000-00-00 00:00:00'),
 (31, 'Bert Fisher', 'Shanaboro', '+63 911-234-0215', '2020-10-02 05:10:42'),
 (32, 'Dr. Otis Lemke I', 'Franzchester', '+63 968-520-1082', '0000-00-00 00:00:00'),
 (33, 'Marta Gerhold', 'North Queenietown', '+63 923-197-4024', '0000-00-00 00:00:00'),
