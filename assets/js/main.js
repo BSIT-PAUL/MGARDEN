@@ -27,13 +27,13 @@ new DataTable('table.table-display',{
         
         { 
             extend: 'excel', 
-            title: 'MGARDEN M Garden Beach Resort's', 
+            title: 'MGARDEN M Garden Beach Resorts', 
             className: 'btn btn-primary',
             text: '<i class="fa fa-file-excel"></i> EXCEL'
         },
         {
             extend: 'pdf',
-            title: 'MGARDEN M Garden Beach Resort's', 
+            title: 'MGARDEN M Garden Beach Resorts', 
             className: 'btn btn-primary',
             text: '<i class="fa fa-file-pdf"></i> PDF'
         },
@@ -41,7 +41,7 @@ new DataTable('table.table-display',{
             extend: 'print', 
             className: 'btn btn-primary',
             text: '<i class="fa fa-print"></i> Print',
-            title: 'MGARDEN M Garden Beach Resort's', 
+            title: 'MGARDEN M Garden Beach Resorts', 
             autoPrint: true,
             exportOptions: {
                 columns: ':visible',

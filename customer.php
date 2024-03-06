@@ -8,14 +8,10 @@ include_once 'functions/tables/datatables.php';
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Customers - MGARDEN</title>
     <meta name="description" content="MGARDEN M Garden Beach Resort's">
     <link rel="icon" type="image/png" sizes="128x128" href="assets/img/icon.png">
-    <link rel="icon" type="image/png" sizes="128x128" href="assets/img/icon.png">
-    <link rel="icon" type="image/png" sizes="128x128" href="assets/img/icon.png">
-    <link rel="icon" type="image/png" sizes="128x128" href="assets/img/icon.png">
-    <link rel="icon" type="image/png" sizes="128x128" href="assets/img/icon.png">
+
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/Nunito.css">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
