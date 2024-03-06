@@ -187,7 +187,7 @@ if (isset($_SESSION['id'])) {
             </div>
         </div>
     </div>
-    <div class="modal fade" role="dialog" tabindex="-1" id="add">
+    <div class="modal fade needs-validation" role="dialog" tabindex="-1" id="add">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -205,6 +205,12 @@ if (isset($_SESSION['id'])) {
                                     <option value="PACKAGE">PACKAGE</option>
                                 </optgroup>
                             </select>
+                        </div>
+                        <div class="row">                        
+                        <label class="form-label">PACKS</label>
+                        <br>
+                        <div class="col-md-6"><input type="number" class="form-control" id="inputKids" placeholder="Kid/s" required></div>
+                        <div class="col-md-6"><input type="number" class="form-control" id="inputAdult" placeholder="Adult/s" required></div>
                         </div>
                         <div class="mb-1"><label class="form-label">Rental Date &amp; Time (start, end)</label>
                             <div class="container">
@@ -307,7 +313,7 @@ if (isset($_SESSION['id'])) {
                         <div class="mb-1"><label class="form-label">TYPE</label><select class="selectpicker select" data-live-search="true" name="type">
                             <optgroup label="SELECT TYPE">
                                 <option value="NIPA">NIPA</option>
-                                <option value="CONCRETE">CONCRETE</option>
+                                <option value="ROOM">ROOM</option>
                             </optgroup>
                         </select></div>
                         <div class="mb-1"><label class="form-label">Rental Date &amp; Time (start, end)</label>
@@ -323,6 +329,29 @@ if (isset($_SESSION['id'])) {
             </div>
         </div>
     </div>
+
+
+
+    <script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>

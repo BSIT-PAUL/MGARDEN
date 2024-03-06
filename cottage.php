@@ -115,7 +115,7 @@ include_once 'functions/tables/datatables.php';
                         <select class="selectpicker select" data-live-search="true" name="type">
                             <optgroup label="SELECT COTTAGE">
                                 <option value="NIPA" selected>NIPA</option> 
-                                <option value="CONCRETE" selected>CONCRETE</option> 
+                                <option value="ROOM" selected>ROOM</option> 
                             </optgroup>
                         </select>
                         <div class="invalid-feedback">
@@ -167,7 +167,7 @@ include_once 'functions/tables/datatables.php';
                         <select class="selectpicker select" data-live-search="true" name="type">
                             <optgroup label="SELECT COTTAGE">
                                 <option value="NIPA" selected>NIPA</option> 
-                                <option value="CONCRETE" selected>CONCRETE</option> 
+                                <option value="ROOM" selected>ROOM</option> 
                             </optgroup>
                         </select>
                         <div class="invalid-feedback">
