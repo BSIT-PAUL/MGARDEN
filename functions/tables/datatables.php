@@ -108,6 +108,8 @@ function cottage_available_list($start, $end, $type){
     $stmt->bindParam(':type', $type);
     $stmt->execute();
     $cottages = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $cottageType = $type;
+    $_SESSION['cottageType'] = $cottageType;
     foreach ($cottages as $cottage) {
         $sql = "SELECT * FROM rentals, cottages 
                 WHERE `cottage_id` = :cottage_id 
@@ -120,7 +122,9 @@ function cottage_available_list($start, $end, $type){
         $stmt->bindParam(':end_datetime', $end);
         $stmt->execute();
         $rental = $stmt->fetch(PDO::FETCH_ASSOC);
-
+        $cottageId = $cottage['id'];
+        $_SESSION['cottage_id'] = $cottageId;
+        
         if (!$rental) {
             ?>
             <div class="col-xl-4">
@@ -128,6 +132,7 @@ function cottage_available_list($start, $end, $type){
                     <img class="card-img-top w-100 d-block fit-cover" style="height: 200px;" src="functions/<?php echo $cottage['picture']; ?>">
                     <div class="card-body p-4">
                         <p class="text-primary card-text mb-0">Cottage ID: <?php echo $cottage['id']; ?> | <?php echo $cottage['type']; ?></p>
+                        
                         <p class="card-text mb-1">Price Day: ₱<?php echo number_format($cottage['priceDay'], 2); ?></p>
                         <p class="card-text mb-1">Price Night: ₱<?php echo number_format($cottage['priceNight'], 2); ?></p>
                         <p>Price Package: ₱<?php echo number_format($cottage['pricePackage'], 2); ?></p>
@@ -136,7 +141,7 @@ function cottage_available_list($start, $end, $type){
                                 <div class="col">
                                     <form action="" method="post">
                                     <button class="btn btn-primary w-100" href="#add" type="button" data-bs-target="#add" data-bs-toggle="modal"
-                                    data-id="<?php echo $cottage['id']; ?>"
+                                    data-id="<?php echo $cottage['id'] ; ?>"
                                     data-type="<?php echo $cottage['type']; ?>"
                                     data-start="<?php echo $_GET['start']; ?>"
                                     data-end="<?php echo $_GET['end']; ?>"

@@ -157,5 +157,5 @@ new DataTable('table.table-display',{
         console.log(id); 
         $('input[name="id"]').val(id);
     });
-    console.log("Developer: Hash'J ❤️ Programming");
+    console.log("MGARDEN");
 } );

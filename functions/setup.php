@@ -1,5 +1,5 @@
 <?php
-    $database = 'MGARDEN';
+    $database = 'mgarden';
     $db = new PDO('mysql:host=localhost', 'root', '');
     $query = "CREATE DATABASE IF NOT EXISTS $database";
 

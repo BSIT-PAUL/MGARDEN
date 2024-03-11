@@ -73,5 +73,17 @@ try {
 } catch (\Throwable $th) {
     // generate_logs('Add Cottage', 'Error on adding new rental: ' . $th->getMessage());
     echo $th->getMessage();
+echo " ";
+    echo $transaction_id;
+    echo " ";
+    echo $cottage_id;
+    echo " ";
+    echo  $user_id ;
+    echo " ";
+    echo $start;
+    echo " ";
+    echo  $end ;
+    echo " ";
+    echo  $type;
 }
 ?>
