@@ -40,7 +40,8 @@ include_once 'functions/tables/datatables.php';
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
                         <h3 class="text-dark mb-0">Demand Analytics</h3>
                     </div>
-                    <div class="row mb-3">
+                    <div><h1 style="">FOR DEMAND ANALYTICS</h1></div>
+                    <!-- <div class="row mb-3">
                         <div class="col-md-6 col-xl-3 mb-4">
                             <div class="card shadow border-start-primary py-2" data-bs-toggle="tooltip" data-bss-tooltip="" title="Here you can see your current earnings.">
                                 <div class="card-body">
@@ -80,8 +81,8 @@ include_once 'functions/tables/datatables.php';
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card shadow">
+                    </div> -->
+                    <!-- <div class="card shadow">
                         <div class="card-header py-3">
                             <p class="text-primary m-0 fw-bold">Transaction List</p>
                         </div>
@@ -108,7 +109,7 @@ include_once 'functions/tables/datatables.php';
                                 </table>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <footer class="bg-white sticky-footer">
@@ -119,7 +120,7 @@ include_once 'functions/tables/datatables.php';
         </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
     </div>
 <?php menu(); ?>
-    <div class="modal fade" role="dialog" tabindex="-1" id="report">
+    <!-- <div class="modal fade" role="dialog" tabindex="-1" id="report">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -139,7 +140,7 @@ include_once 'functions/tables/datatables.php';
                 <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="button">Generate</button></div>
             </div>
         </div>
-    </div>
+    </div> -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
