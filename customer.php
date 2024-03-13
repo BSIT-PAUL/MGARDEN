@@ -43,7 +43,7 @@ include_once 'functions/tables/datatables.php';
                                 <div class="card-body">
                                     <div class="row align-items-center no-gutters">
                                         <div class="col me-2">
-                                            <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span>TOP CUSTOMER</span></div>
+                                            <div class="text-uppercase text-success fw-bold text-xs mb-1"><span>TOP CUSTOMER</span></div>
                                             <div class="text-dark fw-bold h5 mb-0"><span><?php echo get_top_customer() ?? 'None' ?></span></div>
                                         </div>
                                         <div class="col-auto"><i class="fas fa-calendar fa-2x text-gray-300"></i></div>
@@ -80,7 +80,7 @@ include_once 'functions/tables/datatables.php';
                     </div>
                     <div class="card shadow">
                         <div class="card-header py-3">
-                            <p class="text-primary m-0 fw-bold">Customer List</p>
+                            <p class="text-success m-0 fw-bold">Customer List</p>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive table mt-2" id="dataTable-1" role="grid" aria-describedby="dataTable_info">

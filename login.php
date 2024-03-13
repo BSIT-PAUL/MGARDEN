@@ -45,7 +45,7 @@ if (isset($_SESSION['username'])){
                     <div class="card mb-5">
                         <div class="card-body d-flex flex-column align-items-center">
                         <div class="bs-icon-xl bs-icon-circle bs-icon-primary">
-    <img src="assets\img\icons\login.gif" width="" alt="">
+    <img src="assets\img\icons\login.gif" width="100px" alt="">
 </div>
                             <form class="needs-validation" method="post" action="functions/login.php" novalidate>
 

@@ -43,11 +43,11 @@ include_once 'functions/tables/datatables.php';
                     </div>
                     <div class="row mb-3">
                         <div class="col-md-6 col-xl-3 mb-4">
-                            <div class="card shadow border-start-primary py-2" data-bs-toggle="tooltip" data-bss-tooltip="" title="Here you can see your total cottage.">
+                            <div class="card shadow border-start-success py-2" data-bs-toggle="tooltip" data-bss-tooltip="" title="Here you can see your total cottage.">
                                 <div class="card-body">
                                     <div class="row align-items-center no-gutters">
                                         <div class="col me-2">
-                                            <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span>TOTAL COTTAGE</span></div>
+                                            <div class="text-uppercase text-success fw-bold text-xs mb-1"><span>TOTAL COTTAGE</span></div>
                                             <div class="text-dark fw-bold h5 mb-0"><span><?php echo get_total_cottage() ?? 0 ?></span></div>
                                         </div>
                                         <div class="col-auto"><i class="fas fa-calendar fa-2x text-gray-300"></i></div>
@@ -73,7 +73,7 @@ include_once 'functions/tables/datatables.php';
                         <div class="card-header py-3">
                             <div class="row">
                                 <div class="col">
-                                    <p class="text-primary m-0 fw-bold">Cottage List</p>
+                                    <p class="text-success m-0 fw-bold">Cottage List</p>
                                 </div>
                                 <!-- <div class="col-3">
                                     <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search">

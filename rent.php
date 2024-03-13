@@ -49,11 +49,11 @@ if (isset($_SESSION['id'])) {
                     </div>
                     <div class="row mb-3">
                         <div class="col-md-6 col-xl-3 mb-4">
-                            <div class="card shadow border-start-primary py-2" data-bs-toggle="tooltip" data-bss-tooltip="" title="Here you can see your total price.">
+                            <div class="card shadow border-start-success py-2" data-bs-toggle="tooltip" data-bss-tooltip="" title="Here you can see your total price.">
                                 <div class="card-body">
                                     <div class="row align-items-center no-gutters">
                                         <div class="col me-2">
-                                            <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span>TOTAL Price</span></div>
+                                            <div class="text-uppercase text-success fw-bold text-xs mb-1"><span>TOTAL Price</span></div>
                                             <div class="text-dark fw-bold h5 mb-0"><span>₱<?php echo total_price($_SESSION['id'])?? '0'; ?></span></div>
                                         </div>
                                         <div class="col-auto"><i class="fas fa-credit-card fa-2x text-gray-300"></i></div>
@@ -62,11 +62,11 @@ if (isset($_SESSION['id'])) {
                             </div>
                         </div>
                         <div class="col-md-6 col-xl-3 mb-4">
-                            <div class="card shadow border-start-primary py-2" data-bs-toggle="tooltip" data-bss-tooltip="" title="Here you can see your total cottage.">
+                            <div class="card shadow border-start-success py-2" data-bs-toggle="tooltip" data-bss-tooltip="" title="Here you can see your total cottage.">
                                 <div class="card-body">
                                     <div class="row align-items-center no-gutters">
                                         <div class="col me-2">
-                                            <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span>TOTAL COTTAGE</span></div>
+                                            <div class="text-uppercase text-success fw-bold text-xs mb-1"><span>TOTAL COTTAGE</span></div>
                                             <div class="text-dark fw-bold h5 mb-0"><span><?php echo total_cottage($_SESSION['id'])?? '0'; ?></span></div>
                                         </div>
                                         <div class="col-auto"><i class="fas fa-warehouse fa-2x text-gray-300"></i></div>
@@ -83,7 +83,7 @@ if (isset($_SESSION['id'])) {
                             </div>
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <p class="text-primary m-0 fw-bold">Cottage List</p>
+                                    <p class="text-success m-0 fw-bold">Cottage List</p>
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive table mt-2" id="dataTable-1" role="grid" aria-describedby="dataTable_info">
@@ -116,7 +116,7 @@ if (isset($_SESSION['id'])) {
                                 <div class="card-header py-3">
                                     <div class="row">
                                         <div class="col">
-                                            <p class="text-primary m-0 fw-bold">Customer Information</p>
+                                            <p class="text-success m-0 fw-bold">Customer Information</p>
                                         </div>
                                         <div class="col text-end"><button class="btn btn-danger mx-2" type="button" data-bs-target="#cancel" data-bs-toggle="modal">Cancel</button><button class="btn btn-primary" type="button" data-bs-target="#proceed" data-bs-toggle="modal">Proceed</button></div>
                                     </div>
@@ -145,7 +145,7 @@ if (isset($_SESSION['id'])) {
                         <div class="card-header py-3">
                             <div class="row">
                                 <div class="col">
-                                    <p class="text-primary m-0 fw-bold">Cottage List</p>
+                                    <p class="text-success m-0 fw-bold">Cottage List</p>
                                 </div>
                             </div>
                         </div>

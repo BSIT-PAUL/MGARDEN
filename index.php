@@ -44,11 +44,11 @@ include_once 'functions/tables/datatables.php';
                         <div class="col-md-6 col-xl-3 mb-4">
                         <a href="report.php" class="text-decoration-none">
 
-                            <div class="card shadow border-start-primary py-2" data-bs-toggle="tooltip" data-bss-tooltip="" title="Here you can see your montly earnings.">
+                            <div class="card shadow border-start-success py-2" data-bs-toggle="tooltip" data-bss-tooltip="" title="Here you can see your montly earnings.">
                                 <div class="card-body">
                                     <div class="row align-items-center no-gutters">
                                         <div class="col me-2">
-                                            <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span>Earnings (monthly)</span></div>
+                                            <div class="text-uppercase text-success fw-bold text-xs mb-1"><span>Earnings (monthly)</span></div>
                                             <div class="text-dark fw-bold h5 mb-0"><span>₱<?php echo get_sales()?></span></div>
                                         </div>
                                         <div class="col-auto"><i class="fas fa-calendar fa-2x text-gray-300"></i></div>
@@ -110,7 +110,7 @@ include_once 'functions/tables/datatables.php';
                         <div class="col-lg-6 mb-4">
                             <div class="card shadow mb-4" data-bs-toggle="tooltip" data-bss-tooltip="" title="Here you can see your top best selling cottages.">
                                 <div class="card-header py-3">
-                                    <h6 class="text-primary fw-bold m-0">Top Cottages</h6>
+                                    <h6 class="text-success fw-bold m-0">Top Cottages</h6>
                                 </div>
                                 <ul class="list-group list-group-flush">
                                 <?php get_top_cottages() ?>
@@ -120,7 +120,7 @@ include_once 'functions/tables/datatables.php';
                         <div class="col-lg-6 mb-4">
                             <div class="card shadow mb-4" data-bs-toggle="tooltip" data-bss-tooltip="" title="Here you can see your top customers base on their total rents.">
                                 <div class="card-header py-3">
-                                    <h6 class="text-primary fw-bold m-0">Top Customers</h6>
+                                    <h6 class="text-success fw-bold m-0">Top Customers</h6>
                                 </div>
                                 <ul class="list-group list-group-flush">
                                 <?php get_top_customers() ?>
@@ -132,7 +132,7 @@ include_once 'functions/tables/datatables.php';
                         <div class="col">
                             <div class="card shadow mb-4">
                                 <div class="card-header d-flex justify-content-between align-items-center">
-                                    <h6 class="text-primary fw-bold m-0">Current Earnings Overview</h6>
+                                    <h6 class="text-success fw-bold m-0">Current Earnings Overview</h6>
                                     <div class="dropdown no-arrow"><button class="btn btn-link btn-sm dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button"><i class="fas fa-ellipsis-v text-gray-400"></i></button>
                                         <div class="dropdown-menu shadow dropdown-menu-end animated--fade-in">
                                             <p class="text-center dropdown-header">dropdown header:</p><a class="dropdown-item" href="#">&nbsp;Action</a><a class="dropdown-item" href="#">&nbsp;Another action</a>
@@ -150,7 +150,7 @@ include_once 'functions/tables/datatables.php';
                         <div class="col">
                             <div class="card shadow mb-4">
                                 <div class="card-header d-flex justify-content-between align-items-center">
-                                    <h6 class="text-primary fw-bold m-0">Current Earnings Overview</h6>
+                                    <h6 class="text-success fw-bold m-0">Current Earnings Overview</h6>
                                     <div class="dropdown no-arrow"><button class="btn btn-link btn-sm dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button"><i class="fas fa-ellipsis-v text-gray-400"></i></button>
                                         <div class="dropdown-menu shadow dropdown-menu-end animated--fade-in">
                                             <p class="text-center dropdown-header">dropdown header:</p><a class="dropdown-item" href="#">&nbsp;Action</a><a class="dropdown-item" href="#">&nbsp;Another action</a>
@@ -168,7 +168,7 @@ include_once 'functions/tables/datatables.php';
                         <div class="col">
                             <div class="card shadow mb-4">
                                 <div class="card-header d-flex justify-content-between align-items-center">
-                                    <h6 class="text-primary fw-bold m-0">Weekly Earnings Overview</h6>
+                                    <h6 class="text-success fw-bold m-0">Weekly Earnings Overview</h6>
                                     <div class="dropdown no-arrow"><button class="btn btn-link btn-sm dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button"><i class="fas fa-ellipsis-v text-gray-400"></i></button>
                                         <div class="dropdown-menu shadow dropdown-menu-end animated--fade-in">
                                             <p class="text-center dropdown-header">dropdown header:</p><a class="dropdown-item" href="#">&nbsp;Action</a><a class="dropdown-item" href="#">&nbsp;Another action</a>
@@ -186,7 +186,7 @@ include_once 'functions/tables/datatables.php';
                         <div class="col">
                             <div class="card shadow mb-4">
                                 <div class="card-header d-flex justify-content-between align-items-center">
-                                    <h6 class="text-primary fw-bold m-0">Weekly Earnings Overview</h6>
+                                    <h6 class="text-success fw-bold m-0">Weekly Earnings Overview</h6>
                                     <div class="dropdown no-arrow"><button class="btn btn-link btn-sm dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button"><i class="fas fa-ellipsis-v text-gray-400"></i></button>
                                         <div class="dropdown-menu shadow dropdown-menu-end animated--fade-in">
                                             <p class="text-center dropdown-header">dropdown header:</p><a class="dropdown-item" href="#">&nbsp;Action</a><a class="dropdown-item" href="#">&nbsp;Another action</a>
@@ -206,7 +206,7 @@ include_once 'functions/tables/datatables.php';
                         <div class="col">
                             <div class="card shadow mb-4">
                                 <div class="card-header d-flex justify-content-between align-items-center">
-                                    <h6 class="text-primary fw-bold m-0">Monthly Earnings Overview</h6>
+                                    <h6 class="text-success fw-bold m-0">Monthly Earnings Overview</h6>
                                     <div class="dropdown no-arrow"><button class="btn btn-link btn-sm dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button"><i class="fas fa-ellipsis-v text-gray-400"></i></button>
                                         <div class="dropdown-menu shadow dropdown-menu-end animated--fade-in">
                                             <p class="text-center dropdown-header">dropdown header:</p><a class="dropdown-item" href="#">&nbsp;Action</a><a class="dropdown-item" href="#">&nbsp;Another action</a>
@@ -224,7 +224,7 @@ include_once 'functions/tables/datatables.php';
                         <div class="col">
                             <div class="card shadow mb-4">
                                 <div class="card-header d-flex justify-content-between align-items-center">
-                                    <h6 class="text-primary fw-bold m-0">Montly Earnings Overview</h6>
+                                    <h6 class="text-success fw-bold m-0">Montly Earnings Overview</h6>
                                     <div class="dropdown no-arrow"><button class="btn btn-link btn-sm dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button"><i class="fas fa-ellipsis-v text-gray-400"></i></button>
                                         <div class="dropdown-menu shadow dropdown-menu-end animated--fade-in">
                                             <p class="text-center dropdown-header">dropdown header:</p><a class="dropdown-item" href="#">&nbsp;Action</a><a class="dropdown-item" href="#">&nbsp;Another action</a>
@@ -242,7 +242,7 @@ include_once 'functions/tables/datatables.php';
                         <div class="col">
                             <div class="card shadow mb-4">
                                 <div class="card-header d-flex justify-content-between align-items-center">
-                                    <h6 class="text-primary fw-bold m-0">Annual Overview</h6>
+                                    <h6 class="text-success fw-bold m-0">Annual Overview</h6>
                                     <div class="dropdown no-arrow"><button class="btn btn-link btn-sm dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button"><i class="fas fa-ellipsis-v text-gray-400"></i></button>
                                         <div class="dropdown-menu shadow dropdown-menu-end animated--fade-in">
                                             <p class="text-center dropdown-header">dropdown header:</p><a class="dropdown-item" href="#">&nbsp;Action</a><a class="dropdown-item" href="#">&nbsp;Another action</a>
@@ -260,7 +260,7 @@ include_once 'functions/tables/datatables.php';
                         <div class="col">
                             <div class="card shadow mb-4">
                                 <div class="card-header d-flex justify-content-between align-items-center">
-                                    <h6 class="text-primary fw-bold m-0">Annual Overview</h6>
+                                    <h6 class="text-success fw-bold m-0">Annual Overview</h6>
                                     <div class="dropdown no-arrow"><button class="btn btn-link btn-sm dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button"><i class="fas fa-ellipsis-v text-gray-400"></i></button>
                                         <div class="dropdown-menu shadow dropdown-menu-end animated--fade-in">
                                             <p class="text-center dropdown-header">dropdown header:</p><a class="dropdown-item" href="#">&nbsp;Action</a><a class="dropdown-item" href="#">&nbsp;Another action</a>

@@ -33,7 +33,7 @@ function current_chart($type = 'line'){
                 'fill' => true,
                 'data' => $data,
                 'backgroundColor' => 'rgba(78, 115, 223, 0.05)',
-                'borderColor' => 'rgba(78, 115, 223, 1)'
+                'borderColor' => 'rgba(11, 156, 49, 0.8 )'
             ]
         ]
     ];
@@ -76,8 +76,8 @@ function weekly_chart($type = 'line'){
                 'label' => 'Earnings',
                 'fill' => true,
                 'data' => $data,
-                'backgroundColor' => 'rgba(78, 115, 223, 0.05)',
-                'borderColor' => 'rgba(78, 115, 223, 1)'
+                'backgroundColor' => 'rgba(11, 156, 49, 0.06)',
+                'borderColor' => 'rgba(11, 156, 49, 0.6)'
             ]
         ]
     ];
