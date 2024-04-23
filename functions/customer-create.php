@@ -1,6 +1,5 @@
 <?php
 include_once 'connection.php';
-
 $fullname = $_POST['fullname'];
 $address = $_POST['address'];
 $phone = $_POST['phone'];

@@ -96,7 +96,7 @@ include_once 'functions/tables/datatables.php';
                                             <th>Start Date</th>
                                             <th>End Date</th>
                                             <th>Payment Status</th>
-                                            <th>Created At</th>
+                                            <th>Transaction Date</th>
                                         </tr>
                                     </thead>
                                     <tbody>

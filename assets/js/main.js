@@ -73,11 +73,13 @@ new DataTable('table.table-display',{
     
     if (currentPath.includes("/MGARDEN/customer.php")) {
         $('a[data-bs-target="#update"]').on('click', function() {
-            var id = $(this).data('id');
+          
+          var id = $(this).data('id');
+          console.log(id); 
+            console.log(id);
             var fullname = $(this).data('fullname');
             var address = $(this).data('address');
             var phone = $(this).data('phone');
-
             $('input[name="id"]').val(id);
             $('input[name="fullname"]').val(fullname);
             $('input[name="address"]').val(address);
@@ -142,7 +144,7 @@ new DataTable('table.table-display',{
           $('input[name="id"]').val(id);
       });
       } else{
-        // console.log("Developer: Hash'J ❤️ Programming");
+        // console.log("Developer: AITE'J ❤️ Programming");
       }
 
 

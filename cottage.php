@@ -219,6 +219,38 @@ include_once 'functions/tables/datatables.php';
             </div>
         </div>
     </div>
+    <div class="modal fade" role="dialog" tabindex="-1" id="view">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content rounded shadow-lg">
+            <div class="modal-header bg-primary text-light">
+                <h4 class="modal-title text-center mb-0">Penthouse 1</h4>
+                <button class="btn-close btn-close-white" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="inclusions-list">
+                    <h5 class="inclusions-title text-primary">Inclusions:</h5>
+                    <ul class="list-unstyled">
+                        <li>22 Hours Staying with Electricity</li>
+                        <li>Air-Conditioned</li>
+                        <li>Five(5) Persons Free Entrance Fee</li>
+                        <li>1-5 years old Free Entrance Fee</li>
+                        <li>Access Pool and Beach</li>
+                        <li>Free Parking Lot</li>
+                        <li>Free Use of Griller</li>
+                        <li>No Corkage Fee</li>
+                        <li>Pet's Allowed</li>
+                        <li>No Age Limit</li>
+                        <li>Free Tables & Chairs</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer bg-light">
+                <button class="btn btn-outline-primary" type="button" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>

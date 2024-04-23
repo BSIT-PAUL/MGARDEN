@@ -58,7 +58,6 @@ function staff_list(){
         ?>
              <tr>
                 <td><img class="rounded-circle me-2" width="30" height="30" src="assets/img/icon.png"><?php echo $row['username']; ?></td>
-                <td><?php echo $row['password'] ?></td>
                 <td><?php echo $row['phone'] ?></td>
                 <td><?php echo $row['address'] ?></td>
                 <td><?php echo $row['created_at'] ?></td>
@@ -89,7 +88,7 @@ function cottage_list(){
                 <p class="card-text mb-1">Price Night: ₱<?php echo number_format($row['priceNight'], 2); ?></p>
                 <p class="card-text">Price Package: ₱<?php echo number_format($row['pricePackage'], 2); ?></p>
                 <div class="d-flex">
-                    <a class="btn btn-primary mx-1" href="calendar.php" type="button">View</a>
+                    <button class="btn btn-primary mx-1" type="button" data-bs-target="#view"data-id="<?php echo $row['id']; ?>"  data-bs-toggle="modal">View</button>
                     <button class="btn btn-warning mx-1" type="button" data-bs-target="#update" data-id="<?php echo $row['id']; ?>" data-name="<?php echo $row['name']; ?>" data-type="<?php echo $row['type']; ?>" data-day="<?php echo $row['priceDay']; ?>" data-night="<?php echo $row['priceNight']; ?>" data-package="<?php echo $row['pricePackage']; ?>" data-bs-toggle="modal">Update</button>
                     <button class="btn btn-danger mx-1" type="button" data-bs-target="#remove"data-id="<?php echo $row['id']; ?>"  data-bs-toggle="modal">Remove</button>
                 </div>

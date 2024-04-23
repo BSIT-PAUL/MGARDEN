@@ -142,7 +142,7 @@ include_once 'functions/tables/datatables.php';
                                 </div>
                                 <div class="card-body">
                                     <div class="chart-area">
-                                        <?php current_chart('radar'); ?>
+                                        <?php //current_chart('radar'); ?>
                                     </div>
                                 </div>
                             </div>
@@ -160,7 +160,7 @@ include_once 'functions/tables/datatables.php';
                                 </div>
                                 <div class="card-body">
                                     <div class="chart-area">
-                                        <?php current_chart('horizontalBar'); ?>
+                                        <?php //current_chart('horizontalBar'); ?>
                                     </div>
                                 </div>
                             </div>
@@ -178,7 +178,7 @@ include_once 'functions/tables/datatables.php';
                                 </div>
                                 <div class="card-body">
                                     <div class="chart-area">
-                                        <?php weekly_chart('pie'); ?>
+                                        <?php //weekly_chart('pie'); ?>
                                     </div>
                                 </div>
                             </div>
@@ -196,7 +196,7 @@ include_once 'functions/tables/datatables.php';
                                 </div>
                                 <div class="card-body">
                                     <div class="chart-area">
-                                        <?php weekly_chart('doughnut'); ?>
+                                        <?php //weekly_chart('doughnut'); ?>
                                     </div>
                                 </div>
                             </div>
@@ -216,7 +216,7 @@ include_once 'functions/tables/datatables.php';
                                 </div>
                                 <div class="card-body">
                                     <div class="chart-area">
-                                        <?php month_chart('bar'); ?>    
+                                        <?php //month_chart('bar'); ?>    
                                     </div>
                                 </div>
                             </div>
@@ -234,7 +234,7 @@ include_once 'functions/tables/datatables.php';
                                 </div>
                                 <div class="card-body">
                                     <div class="chart-area">
-                                        <?php month_chart('horizontalBar'); ?>    
+                                        <?php //month_chart('horizontalBar'); ?>    
                                     </div>
                                 </div>
                             </div>
@@ -252,7 +252,7 @@ include_once 'functions/tables/datatables.php';
                                 </div>
                                 <div class="card-body">
                                     <div class="chart-area">
-                                        <?php annual_chart('bar'); ?>  
+                                        <?php //annual_chart('bar'); ?>  
                                     </div>
                                 </div>
                             </div>
@@ -270,7 +270,7 @@ include_once 'functions/tables/datatables.php';
                                 </div>
                                 <div class="card-body">
                                     <div class="chart-area">
-                                        <?php annual_chart('horizontalBar'); ?>      
+                                        <?php //annual_chart('horizontalBar'); ?>      
                                     </div>
                                 </div>
                             </div>

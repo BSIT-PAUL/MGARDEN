@@ -1,6 +1,6 @@
 <?php
 include_once 'connection.php';
-
+ 
 try {
     $id = $_POST['id'];
     $sql = "SELECT * FROM customers WHERE id = :id";

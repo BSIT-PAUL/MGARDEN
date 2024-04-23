@@ -23,7 +23,13 @@ if ($user && password_verify($password, $user['password'])) {
         setcookie('password', '', time() - 3600, "/");
     }
     generate_logs('Login', $username.'| Logged in');
-    header('location: ../index.php');
+    if ($user['type'] === 'admin') {
+        header('location: ../index.php');
+    } elseif ($user['type'] === 'staff') {
+        header('location: ../functions/staff/index.php');
+    } else {
+        header('location: ../login.php?type=error&message=Wrong username or password'); 
+    }
 } else {
     header('location: ../login.php?type=error&message=Wrong username or password');
 }

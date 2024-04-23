@@ -90,7 +90,7 @@ include_once 'functions/tables/datatables.php';
                                             <th>Fullname</th>
                                             <th>Address</th>
                                             <th>Phone</th>
-                                            <th>Created At</th>
+                                            <th>Registration Date</th>
                                             <th class="text-center">Option</th>
                                         </tr>
                                     </thead>
@@ -206,4 +206,35 @@ include_once 'functions/tables/datatables.php';
     <script src="assets/js/tinymce.min.js"></script>
 </body>
 
-</html>
+</html><script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        // Event delegation for clicking the update link within the table
+        $('#dataTable').on('click', '.update-link', function(event) {
+            // Prevent the default link behavior
+            event.preventDefault();
+
+            // Get the values from the table row
+            var row = $(this).closest('tr');
+            var customerId = row.find('td:first').text(); // Customer ID
+            var fullname = row.find('td:nth-child(2)').text(); // Fullname column (assuming it's the 2nd column)
+            var address = row.find('td:nth-child(3)').text(); // Address column (assuming it's the 3rd column)
+            var phone = row.find('td:nth-child(4)').text(); // Phone column (assuming it's the 4th column)
+
+            // Set the values in the modal input fields
+            $('#id').val(customerId);
+            $('#fullname').val(fullname);
+            $('#address').val(address);
+            $('#phone').val(phone);
+        });
+
+        // Event listener for modal shown event (to clear the input fields if modal is closed without submission)
+        $('#update').on('hidden.bs.modal', function() {
+            // Clear the values of the input fields in the modal
+            $('#id').val('');
+            $('#fullname').val('');
+            $('#address').val('');
+            $('#phone').val('');
+        });
+    });
+</script>

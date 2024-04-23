@@ -99,7 +99,7 @@ include_once 'functions/tables/datatables.php';
                                             <th>Start Date</th>
                                             <th>End Date</th>
                                             <th>Status</th>
-                                            <th>Created At</th>
+                                            <th>Transaction Date</th>
                                             <th class="text-center">Option</th>
                                         </tr>
                                     </thead>

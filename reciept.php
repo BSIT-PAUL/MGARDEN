@@ -83,7 +83,7 @@ function getItems(){
                 <tr>
                     <th class="font-monospace text-center" style="color: var(--bs-gray-900);font-size: 13px;">
                     <img src="assets/img/icon.png" width="40">&nbsp;M Garden Beach Resort<br>
-                    <span style="font-weight: normal !important;">Street Unknown, Pagadian City</span><br>
+                    <span style="font-weight: normal !important;">Brgy. Bucana, Apacible Blvd. Nasugbu, Batangas,  4231</span><br>
                     <span style="font-weight: normal !important;">Phone (+63) 000-000-000</span><br>
                     </th>
                 </tr>

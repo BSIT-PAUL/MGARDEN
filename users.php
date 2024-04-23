@@ -39,7 +39,7 @@ include_once 'functions/tables/datatables.php';
                 <div class="container-fluid">
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
                         <h3 class="text-dark mb-0">User Management</h3>
-                        <a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#" data-bs-target="#add" data-bs-toggle="modal" data-bs-toggle="tooltip" data-bss-tooltip="" title="Heres you can add new user."><i class="fas fa-user fa-sm text-white-50"></i>&nbsp;Add User</a>
+                        <a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#" data-bs-target="#add" data-bs-toggle="modal" data-bs-toggle="tooltip" data-bss-tooltip="" title="Heres you can add new user."><i class="fas fa-user fa-sm text-white-50"></i>&nbsp;Add Staff</a>
                     </div>
                     <div class="row mb-3">
                         <div class="col-md-6 col-xl-3 mb-4">
@@ -60,7 +60,7 @@ include_once 'functions/tables/datatables.php';
                                 <div class="card-body">
                                     <div class="row align-items-center no-gutters">
                                         <div class="col me-2">
-                                            <div class="text-uppercase text-success fw-bold text-xs mb-1"><span>NEW USERS</span></div>
+                                            <div class="text-uppercase text-success fw-bold text-xs mb-1"><span>NEW STAFF</span></div>
                                             <div class="text-dark fw-bold h5 mb-0"><span><?php echo new_user() ?? 0 ?></span></div>
                                         </div>
                                         <div class="col-auto"><i class="fas fa-calendar fa-2x text-gray-300"></i></div>
@@ -71,7 +71,7 @@ include_once 'functions/tables/datatables.php';
                     </div>
                     <div class="card shadow">
                         <div class="card-header py-3">
-                            <p class="text-success m-0 fw-bold">Users List</p>
+                            <p class="text-success m-0 fw-bold">Staff List</p>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive table mt-2" id="dataTable-1" role="grid" aria-describedby="dataTable_info">
@@ -79,10 +79,9 @@ include_once 'functions/tables/datatables.php';
                                     <thead>
                                         <tr>
                                             <th>Username</th>
-                                            <th>Password</th>
                                             <th>Phone</th>
                                             <th>Address</th>
-                                            <th>Created At</th>
+                                            <th>Registration Date</th>
                                             <th class="text-center">Option</th>
                                         </tr>
                                     </thead>
@@ -110,7 +109,7 @@ include_once 'functions/tables/datatables.php';
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Add User</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
+                    <h4 class="modal-title">Add Staff</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <form class="needs-validation" action="functions/staff-create.php" method="post" novalidate>
@@ -145,7 +144,7 @@ include_once 'functions/tables/datatables.php';
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Update User</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
+                    <h4 class="modal-title">Update Staff</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <form class="needs-validation" action="functions/staff-update.php" method="post" novalidate>
@@ -181,10 +180,10 @@ include_once 'functions/tables/datatables.php';
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Remove User</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
+                    <h4 class="modal-title">Remove Staff</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Are you sure you want to remove this User?</p>
+                    <p>Are you sure you want to remove this Staff?</p>
                 </div>
                 <form action="functions/staff-remove.php" method="post">
                 <input type="hidden" name="id">

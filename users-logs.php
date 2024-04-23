@@ -80,7 +80,7 @@ include_once 'functions/tables/datatables.php';
                         <th>ID</th>
                         <th>Type</th>
                         <th>Logs</th>
-                        <th>Created At</th>
+                        <th>Date</th>
                     </tr>
                 </thead>
                 <tbody>

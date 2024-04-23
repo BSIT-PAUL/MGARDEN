@@ -47,6 +47,7 @@ if (isset($_SESSION['id'])) {
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
                         <h3 class="text-dark mb-0">Cottage Rental</h3>
                     </div>
+                    
                     <div class="row mb-3">
                         <div class="col-md-6 col-xl-3 mb-4">
                             <div class="card shadow border-start-success py-2" data-bs-toggle="tooltip" data-bss-tooltip="" title="Here you can see your total price.">

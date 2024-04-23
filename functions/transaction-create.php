@@ -1,9 +1,7 @@
 <?php
 include_once 'connection.php';
 try {
-    if (session_start() === PHP_SESSION_NONE) {
-        session_start();
-    };
+    
     $customer_id = $_POST['id'];
     $user_id = $_SESSION['id'];
 
