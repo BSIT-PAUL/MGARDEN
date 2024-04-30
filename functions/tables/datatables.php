@@ -29,27 +29,32 @@ function customer_list(){
     $stmt->execute();
     $results = $stmt->fetchAll();
 
+
     foreach ($results as $row) {
         ?>
-             <tr>
-                <td><img class="rounded-circle me-2" width="30" height="30" src="assets/img/icon.png"><?php echo $row['fullname']; ?></td>
-                <td><?php echo $row['phone'] ?></td>
-                <td><?php echo $row['address'] ?></td>
-                <td><?php echo $row['created_at'] ?></td>
-                <td class="text-center">
-                    
-                    <a data-bs-toggle="modal" data-bss-tooltip="" class="mx-1" href="#" data-bs-target="#update" data-id="<?php echo $row['id']?>" data-fullname="<?php echo $row['fullname']?>" data-address="<?php echo $row['address']?>" data-phone="<?php echo $row['phone']?>" title="Here you can update the customer Information."><i class="far fa-edit text-warning" style="font-size: 20px;"></i></a>
-                    <a data-bs-toggle="modal" data-bss-tooltip="" class="mx-1" href="#" data-bs-target="#remove" data-id="<?php echo $row['id']?>" title="Here you can remove the customer."><i class="far fa-trash-alt text-danger" style="font-size: 20px;"></i></a>
-                </td>
-            </tr>
-    <?php
+        <tr>
+            <td><?php echo $row['id']; ?></td>
+            <td><img class="rounded-circle me-2" width="30" height="30" src="assets/img/icon.png"><?php echo $row['fullname']; ?></td>
+            <td><?php echo $row['address']; ?></td>
+            <td><?php echo $row['phone']; ?></td>
+            <td><?php echo $row['created_at']; ?></td>
+            <td class="text-center">
+                <!-- Add data-customer-id attribute with customer ID -->
+                <a href="#" class="mx-1 update-link" data-bs-toggle="modal" data-bs-target="#update" data-id="<?php echo $row['id'] ; ?>"
+                                    data-fullname="<?php echo $row['fullname']; ?>"
+                                    data-start="<?php echo $row['address'] ?>"
+                                    data-end="<?php echo $row['phone']; ?>" title="Here you can update the customer Information."><i class="far fa-edit text-warning" style="font-size: 20px;"></i></a>
+                <a href="#" class="mx-1 remove-link" data-bs-toggle="modal" data-bs-target="#remove" data-id="<?php echo $row['id']; ?>" title="Here you can remove the customer."><i class="far fa-trash-alt text-danger" style="font-size: 20px;"></i></a>
+            </td>
+        </tr>
+        <?php
     }
 }
 
 
 function staff_list(){
     global $db;
-    $sql = 'SELECT * FROM users WHERE `type` = "staff"';
+    $sql = 'SELECT * FROM users WHERE `type` != "admin"';
     $stmt = $db->prepare($sql);
     $stmt->execute();
     $results = $stmt->fetchAll();
@@ -57,12 +62,16 @@ function staff_list(){
     foreach ($results as $row) {
         ?>
              <tr>
+             <td><?php echo$row['id'] ?></td>
                 <td><img class="rounded-circle me-2" width="30" height="30" src="assets/img/icon.png"><?php echo $row['username']; ?></td>
                 <td><?php echo $row['phone'] ?></td>
                 <td><?php echo $row['address'] ?></td>
+                <td><?php echo $row['type'] ?></td>
                 <td><?php echo $row['created_at'] ?></td>
                 <td class="text-center">
-                    <a data-bs-toggle="modal" data-bss-tooltip="" class="mx-1" href="#" data-bs-target="#update" data-id="<?php echo $row['id']?>" data-username="<?php echo $row['username']?>" data-address="<?php echo $row['address']?>" data-phone="<?php echo $row['phone']?>" title="Here you can update the customer Information."><i class="far fa-edit text-warning" style="font-size: 20px;"></i></a>
+                <a href="#" class="mx-1 update-link" data-bs-toggle="modal" data-bs-target="#update" data-id="<?php echo $row['id'] ; ?>"data-username="<?php echo $row['username']?>"
+                data-address="<?php echo $row['address']?>"
+                data-phone="<?php echo $row['phone']?>" title="Here you can update the user Information."><i class="far fa-edit text-warning" style="font-size: 20px;"></i></a>
                     <a data-bs-toggle="modal" data-bss-tooltip="" class="mx-1" href="#" data-bs-target="#remove" data-id="<?php echo $row['id']?>" title="Here you can remove the customer."><i class="far fa-trash-alt text-danger" style="font-size: 20px;"></i></a>
                 </td>
             </tr>

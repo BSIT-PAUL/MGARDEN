@@ -1,6 +1,5 @@
 <?php
-include 'connection.php';
-session_start();
+include_once 'connection.php';
 try {
     
     $customer_id = $_POST['id'];

@@ -87,6 +87,7 @@ include_once 'functions/tables/datatables.php';
                                 <table class="table my-0 table-display" id="dataTable">
                                     <thead>
                                         <tr>
+                                        <th>Customer ID</th>
                                             <th>Fullname</th>
                                             <th>Address</th>
                                             <th>Phone</th>
@@ -144,35 +145,50 @@ include_once 'functions/tables/datatables.php';
         </div>
     </div>
     <div class="modal fade" role="dialog" tabindex="-1" id="update">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Update Customer</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <form class="needs-validation" action="functions/customer-update.php" method="post" novalidate>
-                        <input type="hidden" name="id" id="id">
-                        <div class="mb-1"><label class="form-label">Fullname</label><input class="form-control" type="text" name="fullname" pattern="^(?![\s.]).*$" required="">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Update Customer</h4>
+                <button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form class="needs-validation" action="functions/customer-update.php" method="post" novalidate>
+                    <!-- Input field for customer ID -->
+                    <input type="hidden" name="id" id="id">
+                   
+                    <div class="mb-1">
+                        <label class="form-label">Fullname</label>
+                        <input class="form-control" id="fullname" type="text" name="fullname" pattern="^(?![\s.]).*$" required="">
                         <div class="invalid-feedback">
                             Please enter your fullname.
                         </div>
                     </div>
-                        <div class="mb-1"><label class="form-label">Address</label><input class="form-control" type="text" name="address" pattern="^(?![\s.]).*$" required="">
+
+                    <div class="mb-1">
+                        <label class="form-label">Address</label>
+                        <input class="form-control"id="address" type="text" name="address" pattern="^(?![\s.]).*$" required="">
                         <div class="invalid-feedback">
                             Please enter your address.
                         </div>
                     </div>
-                        <div class="mb-1"><label class="form-label">Phone</label><input class="form-control" type="text" name="phone" pattern="[0-9]+" minlength="11" maxlength="11" required="">
+
+                    <div class="mb-1">
+                        <label class="form-label">Phone</label>
+                        <input class="form-control" id="phone" type="text" name="phone" pattern="[0-9]+" minlength="11" maxlength="11" required="">
                         <div class="invalid-feedback">
                             Please enter your phone number.
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="submit">Save</button></div>
-                </form>
-            </div>
+                <div class="modal-footer">
+                    <button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button>
+                    <button class="btn btn-primary" type="submit">Save</button>
+                </div>
+            </form>
         </div>
     </div>
+</div>
+
     <div class="modal fade" role="dialog" tabindex="-1" id="remove">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -229,6 +245,13 @@ include_once 'functions/tables/datatables.php';
         });
 
         // Event listener for modal shown event (to clear the input fields if modal is closed without submission)
+        $('#update').on('hidden.bs.modal', function() {
+            // Clear the values of the input fields in the modal
+            $('#id').val('');
+            $('#fullname').val('');
+            $('#address').val('');
+            $('#phone').val('');
+        });
         $('#update').on('hidden.bs.modal', function() {
             // Clear the values of the input fields in the modal
             $('#id').val('');

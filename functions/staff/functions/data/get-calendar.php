@@ -1,5 +1,5 @@
 <?php
-include_once 'connection.php';
+include_once '../connection.php';
 $calendarData = array();
 
 $sql = 'SELECT r.*, co.fullname, c.name AS cottage_name

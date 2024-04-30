@@ -148,13 +148,7 @@ new DataTable('table.table-display',{
       }
 
 
-
-    $('a[data-bs-target="#remove"]').on('click', function() {
-        var id = $(this).data('id');
-        console.log(id); 
-        $('input[name="id"]').val(id);
-    });
-    $('button[data-bs-target="#remove"]').on('click', function() {
+      $(document).on('click', 'a[data-bs-target="#remove"], button[data-bs-target="#remove"]', function() {
         var id = $(this).data('id');
         console.log(id); 
         $('input[name="id"]').val(id);

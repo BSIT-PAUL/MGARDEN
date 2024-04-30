@@ -1,8 +1,7 @@
 <?php
 include_once 'connection.php';
-if (session_start() === PHP_SESSION_NONE) {
-    session_start();
-}
+session_start();
+
 $username = $_POST['username'];
 $password = $_POST['password'];
 

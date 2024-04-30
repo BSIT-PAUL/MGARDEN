@@ -39,7 +39,7 @@ include_once 'functions/tables/datatables.php';
                 <div class="container-fluid">
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
                         <h3 class="text-dark mb-0">User Management</h3>
-                        <a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#" data-bs-target="#add" data-bs-toggle="modal" data-bs-toggle="tooltip" data-bss-tooltip="" title="Heres you can add new user."><i class="fas fa-user fa-sm text-white-50"></i>&nbsp;Add Staff</a>
+                        <a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#" data-bs-target="#add" data-bs-toggle="modal" data-bs-toggle="tooltip" data-bss-tooltip="" title="Heres you can add new user."><i class="fas fa-user fa-sm text-white-50"></i>&nbsp;Add User</a>
                     </div>
                     <div class="row mb-3">
                         <div class="col-md-6 col-xl-3 mb-4">
@@ -60,7 +60,7 @@ include_once 'functions/tables/datatables.php';
                                 <div class="card-body">
                                     <div class="row align-items-center no-gutters">
                                         <div class="col me-2">
-                                            <div class="text-uppercase text-success fw-bold text-xs mb-1"><span>NEW STAFF</span></div>
+                                            <div class="text-uppercase text-success fw-bold text-xs mb-1"><span>NEW USER</span></div>
                                             <div class="text-dark fw-bold h5 mb-0"><span><?php echo new_user() ?? 0 ?></span></div>
                                         </div>
                                         <div class="col-auto"><i class="fas fa-calendar fa-2x text-gray-300"></i></div>
@@ -71,16 +71,18 @@ include_once 'functions/tables/datatables.php';
                     </div>
                     <div class="card shadow">
                         <div class="card-header py-3">
-                            <p class="text-success m-0 fw-bold">Staff List</p>
+                            <p class="text-success m-0 fw-bold">User List</p>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive table mt-2" id="dataTable-1" role="grid" aria-describedby="dataTable_info">
                                 <table class="table my-0 table-display" id="dataTable">
                                     <thead>
                                         <tr>
+                                            <th>User ID</th>
                                             <th>Username</th>
                                             <th>Phone</th>
                                             <th>Address</th>
+                                            <th>Type</th>
                                             <th>Registration Date</th>
                                             <th class="text-center">Option</th>
                                         </tr>
@@ -109,7 +111,7 @@ include_once 'functions/tables/datatables.php';
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Add Staff</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
+                    <h4 class="modal-title">Add User</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <form class="needs-validation" action="functions/staff-create.php" method="post" novalidate>
@@ -143,36 +145,39 @@ include_once 'functions/tables/datatables.php';
     <div class="modal fade" role="dialog" tabindex="-1" id="update">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Update Staff</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
-                </div>
+            <div class="modal-header">
+                <h4 class="modal-title">Update User</h4>
+                <button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
+            </div>
                 <div class="modal-body">
                     <form class="needs-validation" action="functions/staff-update.php" method="post" novalidate>
-                        <input type="hidden" name="id">
-                        <div class="mb-1"><label class="form-label">Username</label><input class="form-control" type="text" name="username" pattern="^(?![\s.]).*$" required="">
+                        <input type="text" name="id" id="id">
+                        <div class="mb-1"><label class="form-label">Username</label><input class="form-control" type="text" id="username" name="username"  pattern="^(?![\s.]).*$" required="">
                         <div class="invalid-feedback">
                             Please enter your username.
                         </div>
                     </div>
-                        <div class="mb-1"><label class="form-label">Password</label><input class="form-control" type="password" name="password" pattern="^(?![\s.]).*$" required="">
+                        <div class="mb-1"><label class="form-label">Password</label><input class="form-control" type="password" id="password"  name="password" pattern="^(?![\s.]).*$" required="">
                         <div class="invalid-feedback">
                             Please enter your password.
                         </div>
                     </div>
-                        <div class="mb-1"><label class="form-label">Address</label><input class="form-control" type="text" name="address" pattern="^(?![\s.]).*$" required="">
+                        <div class="mb-1"><label class="form-label">Address</label><input class="form-control" type="text"  id="address"   name="address"pattern="^(?![\s.]).*$" required="">
                         <div class="invalid-feedback">
                             Please enter your address.
                         </div>
                     </div>
-                        <div class="mb-1"><label class="form-label">Phone</label><input class="form-control" type="text" name="phone" pattern="[0-9]+" minlength="11" maxlength="11" required="">
+                        <div class="mb-1"><label class="form-label">Phone</label><input class="form-control" type="text" id="phone" name="phone"  pattern="[0-9]+" minlength="11" maxlength="11" required="">
                         <div class="invalid-feedback">
                             Please enter your phone number.
                         </div>
                     </div>
                     
                 </div>
-                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="submit">Save</button></div>
-                </form>
+                <div class="modal-footer">
+                <button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button>
+                    <button class="btn btn-primary" type="submit">Save</button> </div>
+                                </form>
             </div>
         </div>
     </div>
@@ -180,10 +185,10 @@ include_once 'functions/tables/datatables.php';
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Remove Staff</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
+                    <h4 class="modal-title">Remove User</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Are you sure you want to remove this Staff?</p>
+                    <p>Are you sure you want to remove this User?</p>
                 </div>
                 <form action="functions/staff-remove.php" method="post">
                 <input type="hidden" name="id">
@@ -209,4 +214,37 @@ include_once 'functions/tables/datatables.php';
     <script src="assets/js/tinymce.min.js"></script>
 </body>
 
-</html>
+</html><script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Your custom JavaScript -->
+<script>
+    $(document).ready(function() {
+        // Event delegation for clicking the update link within the table
+        $('#dataTable').on('click', '.update-link', function(event) {
+            // Prevent the default link behavior
+            event.preventDefault();
+
+            // Get the values from the table row
+            var row = $(this).closest('tr');
+            var userID = row.find('td:first').text(); 
+            var userName = row.find('td:nth-child(2)').text(); 
+            var phone = row.find('td:nth-child(3)').text(); 
+            var address = row.find('td:nth-child(4)').text(); 
+
+            // Set the values in the modal input fields
+            $('#id').val(userID);
+            $('#username').val(userName);
+            $('#phone').val(phone);
+            $('#address').val(address);
+        });
+
+        // Event listener for modal hidden event (to clear the input fields if modal is closed without submission)
+        $('#update').on('hidden.bs.modal', function() {
+            // Clear the values of the input fields in the modal
+            $('#id').val('');
+            $('#username').val('');
+            $('#phone').val('');
+            $('#address').val('');
+        });
+    });
+</script>

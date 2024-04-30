@@ -7,7 +7,9 @@ try {
     $address = $_POST['address'];
     $phone = $_POST['phone'];
 
-  
+
+
+
     // Update the customer information
     $sqlUpdate = "UPDATE customers SET fullname = :fullname, address = :address, phone = :phone WHERE id = :id";
     $statement = $db->prepare($sqlUpdate);

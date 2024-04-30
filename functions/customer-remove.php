@@ -1,6 +1,6 @@
 <?php
 include_once 'connection.php';
- 
+
 try {
     $id = $_POST['id'];
     $sql = "SELECT * FROM customers WHERE id = :id";
@@ -16,6 +16,6 @@ try {
     generate_logs('Removing Customer',  $result['fullname'].' was removed');
     header('Location: ../customer.php?type=success&message='.$result['fullname'].' was removed successfully!');
 } catch (\Throwable $th) {
-    generate_logs('Removing Staff', $th);
+    generate_logs('Removing Customer', $th);
     header('Location: ../customer.php?type=error&message=Something went wrong, please try again');
 }

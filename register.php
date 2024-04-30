@@ -37,7 +37,7 @@ if (isset($_SESSION['username'])){
         <div class="container">
             <div class="row mb-5">
                 <div class="col-md-8 col-xl-6 text-center mx-auto">
-                    <h2>Log in</h2>
+                    <h2>Create an Account</h2>
                 </div>
             </div>
             <div class="row d-flex justify-content-center">
@@ -47,27 +47,39 @@ if (isset($_SESSION['username'])){
                         <div class="bs-icon-xl bs-icon-circle bs-icon-primary">
     <img src="assets\img\icons\login.gif" width="100px" alt="">
 </div>
-                            <form class="needs-validation" method="post" action="functions/login.php" novalidate>
+<form class="needs-validation" method="post" action="functions/newcustomer.php" novalidate>
+<div class="mb-1"><label class="form-label"></label><input class="form-control" type="text" placeholder="Fullname" name="fullname" pattern="^(?![\s.]).*$" required="">
+                        <div class="invalid-feedback">
+                            Please enter your fullname.
+                        </div>
+                    </div>
+<div class="mb-1"><label class="form-label"></label><input class="form-control" type="text" placeholder="Username" name="username" pattern="^(?![\s.]).*$" required="">
+                        <div class="invalid-feedback">
+                            Please enter your username.
+                        </div>
+                    </div>
+                        <div class="mb-1"><label class="form-label"></label><input class="form-control" type="password" placeholder="Password" name="password" pattern="^(?![\s.]).*$" required="">
+                        <div class="invalid-feedback">
+                            Please enter your password.
+                        </div>
+                    </div>
+                        <div class="mb-1"><label class="form-label"></label><input class="form-control" type="text" placeholder="Address" name="address" pattern="^(?![\s.]).*$" required="">
+                        <div class="invalid-feedback">
+                            Please enter your address.
+                        </div>
+                    </div>
+                        <div class="mb-1"><label class="form-label"></label><input class="form-control" type="text" placeholder="Phone" name="phone" pattern="[0-9]+" minlength="11" maxlength="11" required="">
+                        <div class="invalid-feedback">
+                            Please enter your phone number.
+                        </div>
+                        <br>
+                    </div>
 
-                                <input type="text" class="form-control mb-3" id="username" name="username" placeholder="Username" value="<?php echo isset($_COOKIE['username']) ? $_COOKIE['username'] : ''; ?>" required>
-                                <div class="invalid-feedback">
-                                    Please enter your username.
-                                </div>
+    <button class="btn btn-primary d-block w-100 mb-3" type="submit">Create Account</button>
 
-                                <input type="password" class="form-control mb-3" id="password" name="password" placeholder="Password" value="<?php echo isset($_COOKIE['password']) ? $_COOKIE['password'] : ''; ?>" required>
-                                <div class="invalid-feedback">
-                                    Please enter your password.
-                                </div>
-                                <div class="mb-3">
-                                    <input class="form-check-input" name="remember" type="checkbox" aria-label="remember" <?php echo isset($_COOKIE['username']) ? 'checked' : ''; ?>>
-                                    <label class="form-check-label text-dark" for="remember">
-                                        Remember me
-                                    </label>
-                                </div>
-                                <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Login</button></div>
-                                <p1>Don't have account?</p1><a href="register.php" class="btn btn-link btn-sm" tabindex="-1" role="button" aria-disabled="true">Sign Up</a>
-                            </form>
-                            
+    <p>Already have an account? <a href="login.php" class="btn btn-link btn-sm">Login</a></p>
+</form>
+
                         </div>
                     </div>
                 </div>
