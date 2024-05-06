@@ -26,7 +26,9 @@ if ($user && password_verify($password, $user['password'])) {
         header('location: ../index.php');
     } elseif ($user['type'] === 'staff') {
         header('location: ../functions/staff/index.php');
-    } else {
+    }elseif ($user['type'] === 'customer') {
+        header('location: ../functions/customer/dashboard.php');
+    }  else {
         header('location: ../login.php?type=error&message=Wrong username or password'); 
     }
 } else {

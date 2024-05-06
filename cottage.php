@@ -106,9 +106,9 @@ include_once 'functions/tables/datatables.php';
                 </div>
                 <div class="modal-body">
                     <form class="needs-validation" action="functions/cottage-create.php" method="post" enctype="multipart/form-data" novalidate>
-                    <div class="mb-1"><label class="form-label">Cottage No.</label><input class="form-control" type="number" name="name" required="" placeholder="Cottage No.">
+                    <div class="mb-1"><label class="form-label">Name</label><input class="form-control" type="number" name="name" required="" placeholder="Name">
                         <div class="invalid-feedback">
-                            Please enter your cottage number.
+                            Please enter your cottage name.
                         </div>
                     </div>
                     <div class="mb-1"><label class="form-label">Type</label>

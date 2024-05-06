@@ -34,54 +34,50 @@ if (isset($_SESSION['id'])) {
 <body id="page-top">
     <div id="wrapper">
         <div class="d-flex flex-column" id="content-wrapper">
-            <nav class="navbar navbar-expand-md bg-body py-3 mb-5">
-                <div class="container-fluid"><img src="assets/img/icon.png" width="32"><a class="navbar-brand d-flex align-items-center" href="#"><span>&nbsp; M Garden Beach Resort</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-                    <div class="collapse navbar-collapse" id="navcol-2">
-                        <ul class="navbar-nav ms-auto"></ul>
-                        <button class="btn btn-light ms-md-2" data-bs-toggle="offcanvas" data-bss-tooltip="" data-bs-placement="left" type="button" data-bs-target="#offcanvas-menu" title="Here you can see all the menu list of the site such as (Dashboard, Customers, Rents and etc.).">Menu</button>
-                    </div>
-                </div>
-            </nav>
-            <div id="content">
+        <nav class="navbar navbar-light navbar-expand-md sticky-top navbar-shrink py-3" id="mainNav">
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href="/"><img src="assets/img/icon.png" width="32"><span> M Garden Beach Resort</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link active" href="dashboard.php">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="rent.php">Reservation List</a></li>
+                    <li class="nav-item"><a class="nav-link" href="my-reservation-list.php">My Reservations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="transaction.php">My History</a></li>
+                    <li class="nav-item"><a class="nav-link" href="my-account.php">My Account</a></li>
+                </ul><a class="btn btn-primary" type="button" href="functions/logout.php">Sign Out</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container py-4 py-xl-5"> <div id="content">
                 <div class="container-fluid">
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
                         <h3 class="text-dark mb-0">Cottage Rental</h3>
                     </div>
-                    
-                    <div class="row mb-3">
-                        <div class="col-md-6 col-xl-3 mb-4">
-                            <div class="card shadow border-start-success py-2" data-bs-toggle="tooltip" data-bss-tooltip="" title="Here you can see your total price.">
-                                <div class="card-body">
-                                    <div class="row align-items-center no-gutters">
-                                        <div class="col me-2">
-                                            <div class="text-uppercase text-success fw-bold text-xs mb-1"><span>TOTAL Price</span></div>
-                                            <div class="text-dark fw-bold h5 mb-0"><span>₱<?php echo total_price($_SESSION['id'])?? '0'; ?></span></div>
-                                        </div>
-                                        <div class="col-auto"><i class="fas fa-credit-card fa-2x text-gray-300"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-xl-3 mb-4">
-                            <div class="card shadow border-start-success py-2" data-bs-toggle="tooltip" data-bss-tooltip="" title="Here you can see your total cottage.">
-                                <div class="card-body">
-                                    <div class="row align-items-center no-gutters">
-                                        <div class="col me-2">
-                                            <div class="text-uppercase text-success fw-bold text-xs mb-1"><span>TOTAL COTTAGE</span></div>
-                                            <div class="text-dark fw-bold h5 mb-0"><span><?php echo total_cottage($_SESSION['id'])?? '0'; ?></span></div>
-                                        </div>
-                                        <div class="col-auto"><i class="fas fa-warehouse fa-2x text-gray-300"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                     <div class="row">
                         <div class="col">
                             <div class="d-sm-flex justify-content-between align-items-center mb-4">
                             <a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#" data-bs-target="#search" data-bs-toggle="modal"><i class="fas fa-user fa-sm text-white-50"></i>&nbsp;Check Cottage Available</a>
                                 <!-- <a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#" data-bs-target="#add" data-bs-toggle="modal"><i class="fas fa-user fa-sm text-white-50"></i>&nbsp;Add Cottage</a> -->
+                            </div>            
+                    <div class="card shadow">
+                        <div class="card-header py-3">
+                            <div class="row">
+                                <div class="col">
+                                    <p class="text-success m-0 fw-bold">Cottage List</p>
+                                </div>
                             </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
+                                <?php 
+                                    if (isset($_GET['start']) && isset($_GET['end'])) {
+                                        cottage_available_list($_GET['start'], $_GET['end'], $_GET['type']); 
+                                    }
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                <hr>
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
                                     <p class="text-success m-0 fw-bold">Cottage List</p>
@@ -109,58 +105,11 @@ if (isset($_SESSION['id'])) {
                                 </div>
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                                <h3 class="text-dark mb-0"></h3><a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#" data-bs-toggle="modal" data-bs-target="#select"><i class="fas fa-user fa-sm text-white-50"></i>&nbsp;Select Customer</a>
-                            </div>
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <div class="row">
-                                        <div class="col">
-                                            <p class="text-success m-0 fw-bold">Customer Information</p>
-                                        </div>
-                                        <div class="col text-end"><button class="btn btn-danger mx-2" type="button" data-bs-target="#cancel" data-bs-toggle="modal">Cancel</button><button class="btn btn-primary" type="button" data-bs-target="#proceed" data-bs-toggle="modal">Proceed</button></div>
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <form>
-                                        <div class="row">
-                                            <div class="col">
-                                                <div class="mb-3"><label class="form-label" for="first_name"><strong>Fullname</strong></label>
-                                                <input class="form-control" type="text" id="first_name" placeholder="John" name="first_name" readonly="" value="<?php echo $fullname; ?>"></div>
-                                            </div>
-                                        </div>
-                                        <div class="mb-3"><label class="form-label" for="last_name"><strong>Address</strong></label>
-                                        <input class="form-control" type="text" placeholder="Address" name="address" readonly="" value="<?php echo $address; ?>"></div>
-                                        <div class="mb-3"><label class="form-label" for="last_name"><strong>Phone</strong></label>
-                                        <input class="form-control" type="text" placeholder="Contact" name="address" readonly="" value="<?php echo $phone; ?>"></div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
-            <div class="container-fluid">
-                    <div class="card shadow">
-                        <div class="card-header py-3">
-                            <div class="row">
-                                <div class="col">
-                                    <p class="text-success m-0 fw-bold">Cottage List</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
-                                <?php 
-                                    if (isset($_GET['start']) && isset($_GET['end'])) {
-                                        cottage_available_list($_GET['start'], $_GET['end'], $_GET['type']); 
-                                    }
-                                ?>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             <footer class="bg-white sticky-footer">
                 <div class="container my-auto">
                     <div class="text-center my-auto copyright"><span>Copyright © MGARDEN 2024</span></div>
@@ -331,7 +280,8 @@ if (isset($_SESSION['id'])) {
             </div>
         </div>
     </div>
-
+ </div>
+           
 
 
 
