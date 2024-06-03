@@ -1,9 +1,9 @@
+import plotly.graph_objs as go
+from plotly.subplots import make_subplots
 import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
 from sqlalchemy import create_engine
 from datetime import datetime
-import matplotlib.pyplot as plt
-
 # Establish a connection to your MySQL database
 connection_string = 'mysql+mysqlconnector://root:@localhost/MGARDEN'
 engine = create_engine(connection_string)
@@ -44,25 +44,21 @@ df['duration'] = (df['enddate'] - df['startdate']).dt.days
 model = RandomForestRegressor(random_state=42)
 model.fit(df[['month', 'day_of_week', 'duration']], df['cottage_price'])
 
+
+
 # Predict future sales for the next 6 months
-future_dates = pd.date_range(datetime.now(), periods=6, freq='ME')
+future_dates = pd.date_range(datetime.now(), periods=6, freq='M')
 future_data = pd.DataFrame({'month': future_dates.month,
                             'day_of_week': future_dates.dayofweek,
                             'duration': [5, 5, 5, 5, 5, 5]})  # Assuming duration is constant
 future_sales = model.predict(future_data)
 
-# Plot predicted future sales
-plt.figure(figsize=(10, 6))
-plt.plot(future_dates, future_sales, marker='o')
-plt.xlabel('Month')
-plt.ylabel('Sales')
-plt.title('Predicted Future Sales')
-plt.grid(True)
-plt.xticks(rotation=45)
-plt.tight_layout()
-plt.show()
+# Create an interactive plot
+fig = make_subplots(rows=1, cols=1)
+fig.add_trace(go.Scatter(x=future_dates, y=future_sales, mode='lines+markers', name='Predicted Sales'))
+fig.update_layout(title='Predicted Future Sales', xaxis_title='Month', yaxis_title='Sales')
+fig_json = fig.to_json()
 
-# Identify months of high demand (e.g., top 3 months with highest predicted sales)
-future_data['predicted_sales'] = future_sales
-top_months = future_data.nlargest(3, 'predicted_sales')['month'].values
-print(f"Top 3 months of high demand: {top_months}")
+# Save the interactive plot JSON data to a file
+with open('plot.json', 'w') as file:
+    file.write(fig_json)

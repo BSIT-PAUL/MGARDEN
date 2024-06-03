@@ -30,7 +30,7 @@ function cotteges(){
 
 function customer_info($id){
     global $db;
-    $sql = 'SELECT * FROM `transactions` WHERE `user_id` = :id AND `status` = "Pending"';
+    $sql = 'SELECT * FROM `transactions` WHERE `user_id` = :id ';
     $stmt = $db->prepare($sql);
     $stmt->bindParam(':id', $id);
     $stmt->execute();

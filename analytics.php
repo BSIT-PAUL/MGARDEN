@@ -2,6 +2,7 @@
 include_once 'functions/menu/offcanva-menu.php';
 include_once 'functions/authentication.php';
 include_once 'functions/tables/datatables.php';
+
 ?>
 <!DOCTYPE html>
 <html data-bs-theme="light" lang="en">
@@ -40,76 +41,36 @@ include_once 'functions/tables/datatables.php';
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
                         <h3 class="text-dark mb-0">Demand Analytics</h3>
                     </div>
-                    <div><h1 style="">FOR DEMAND ANALYTICS</h1></div>
-                    <!-- <div class="row mb-3">
-                        <div class="col-md-6 col-xl-3 mb-4">
-                            <div class="card shadow border-start-primary py-2" data-bs-toggle="tooltip" data-bss-tooltip="" title="Here you can see your current earnings.">
-                                <div class="card-body">
-                                    <div class="row align-items-center no-gutters">
-                                        <div class="col me-2">
-                                            <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span>CURRENT SALES</span></div>
-                                            <div class="text-dark fw-bold h5 mb-0"><span>₱<?php echo get_sales()?></span></span></span></div>
-                                        </div>
-                                        <div class="col-auto"><i class="fas fa-calendar fa-2x text-gray-300"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-xl-3 mb-4">
-                            <div class="card shadow border-start-success py-2" data-bs-toggle="tooltip" data-bss-tooltip="" title="Here you can see your monthly earnings.">
-                                <div class="card-body">
-                                    <div class="row align-items-center no-gutters">
-                                        <div class="col me-2">
-                                            <div class="text-uppercase text-warning fw-bold text-xs mb-1"><span>MONTLY SALES</span></div>
-                                            <div class="text-dark fw-bold h5 mb-0"><span>₱<?php echo get_sales()?></span></div>
-                                        </div>
-                                        <div class="col-auto"><i class="fas fa-calendar fa-2x text-gray-300"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-xl-3 mb-4">
-                            <div class="card shadow border-start-success py-2" data-bs-toggle="tooltip" data-bss-tooltip="" title="Here you can see your annual earnings.">
-                                <div class="card-body">
-                                    <div class="row align-items-center no-gutters">
-                                        <div class="col me-2">
-                                            <div class="text-uppercase text-warning fw-bold text-xs mb-1"><span>ANNUAL SALES</span></div>
-                                            <div class="text-dark fw-bold h5 mb-0"><span>₱<?php echo get_sales('annual')?></span></div>
-                                        </div>
-                                        <div class="col-auto"><i class="fas fa-calendar fa-2x text-gray-300"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-                    <!-- <div class="card shadow">
-                        <div class="card-header py-3">
-                            <p class="text-primary m-0 fw-bold">Transaction List</p>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive table mt-2" id="dataTable-1" role="grid" aria-describedby="dataTable_info">
-                                <table class="table my-0 table-display" id="dataTable">
-                                    <thead>
-                                        <tr>
-                                            <th>Cottage</th>
-                                            <th>Price</th>
-                                            <th>Type</th>
-                                            <th>Start Date</th>
-                                            <th>End Date</th>
-                                            <th>Payment Status</th>
-                                            <th>Created At</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php sales_report(); ?>
-                                    </tbody>
-                                    <tfoot>
-                                        <tr></tr>
-                                    </tfoot>
-                                </table>
-                            </div>
-                        </div>
-                    </div> -->
+                    <?php
+// Read the interactive plot JSON data
+$plot_json = file_get_contents('plot.json');
+
+// Display the interactive plot using Plotly's JavaScript library
+echo <<<HTML
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div id="plotly-chart"></div>
+    <script>
+        var plotlyData = $plot_json;
+        Plotly.newPlot('plotly-chart', plotlyData.data, plotlyData.layout);
+    </script>
+</body>
+</html>
+HTML;
+?><script>
+var plotlyData = $plot_json;
+Plotly.newPlot('plotly-chart', plotlyData.data, plotlyData.layout);
+
+document.getElementById('plotly-chart').on('plotly_hover', function(data){
+    var point = data.points[0];
+    alert(`Month: ${point.x}<br>Sales: ${point.y}`);
+});
+</script>
+                  
                 </div>
             </div>
             <footer class="bg-white sticky-footer">

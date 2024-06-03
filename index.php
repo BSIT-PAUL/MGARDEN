@@ -49,7 +49,7 @@ include_once 'functions/tables/datatables.php';
                                     <div class="row align-items-center no-gutters">
                                         <div class="col me-2">
                                             <div class="text-uppercase text-success fw-bold text-xs mb-1"><span>Earnings (monthly)</span></div>
-                                            <div class="text-dark fw-bold h5 mb-0"><span>₱<?php echo get_sales()?></span></div>
+                                            <div class="text-dark fw-bold h5 mb-0"><span>₱<?php echo get_sales1()?></span></div>
                                         </div>
                                         <div class="col-auto"><i class="fas fa-calendar fa-2x text-gray-300"></i></div>
                                     </div>
@@ -129,7 +129,7 @@ include_once 'functions/tables/datatables.php';
                         </div>
                     </div>
                     <div class="row gx-3 row-cols-2">
-                        <div class="col">
+                        <!-- <div class="col">
                             <div class="card shadow mb-4">
                                 <div class="card-header d-flex justify-content-between align-items-center">
                                     <h6 class="text-success fw-bold m-0">Current Earnings Overview</h6>
@@ -146,7 +146,7 @@ include_once 'functions/tables/datatables.php';
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="col">
                             <div class="card shadow mb-4">
                                 <div class="card-header d-flex justify-content-between align-items-center">
@@ -160,12 +160,12 @@ include_once 'functions/tables/datatables.php';
                                 </div>
                                 <div class="card-body">
                                     <div class="chart-area">
-                                        <?php //current_chart('horizontalBar'); ?>
+                                        <?php current_chart('horizontalBar'); ?>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col">
+                        <!-- <div class="col">
                             <div class="card shadow mb-4">
                                 <div class="card-header d-flex justify-content-between align-items-center">
                                     <h6 class="text-success fw-bold m-0">Weekly Earnings Overview</h6>
@@ -182,7 +182,7 @@ include_once 'functions/tables/datatables.php';
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="col">
                             <div class="card shadow mb-4">
                                 <div class="card-header d-flex justify-content-between align-items-center">
@@ -196,7 +196,7 @@ include_once 'functions/tables/datatables.php';
                                 </div>
                                 <div class="card-body">
                                     <div class="chart-area">
-                                        <?php //weekly_chart('doughnut'); ?>
+                                        <?php weekly_chart('doughnut'); ?>
                                     </div>
                                 </div>
                             </div>
@@ -216,12 +216,12 @@ include_once 'functions/tables/datatables.php';
                                 </div>
                                 <div class="card-body">
                                     <div class="chart-area">
-                                        <?php //month_chart('bar'); ?>    
+                                        <?php month_chart('bar'); ?>    
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col">
+                        <!-- <div class="col">
                             <div class="card shadow mb-4">
                                 <div class="card-header d-flex justify-content-between align-items-center">
                                     <h6 class="text-success fw-bold m-0">Montly Earnings Overview</h6>
@@ -238,11 +238,11 @@ include_once 'functions/tables/datatables.php';
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="col">
                             <div class="card shadow mb-4">
                                 <div class="card-header d-flex justify-content-between align-items-center">
-                                    <h6 class="text-success fw-bold m-0">Annual Overview</h6>
+                                    <h6 class="text-success fw-bold m-0">Annual Earnings Overview</h6>
                                     <div class="dropdown no-arrow"><button class="btn btn-link btn-sm dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button"><i class="fas fa-ellipsis-v text-gray-400"></i></button>
                                         <div class="dropdown-menu shadow dropdown-menu-end animated--fade-in">
                                             <p class="text-center dropdown-header">dropdown header:</p><a class="dropdown-item" href="#">&nbsp;Action</a><a class="dropdown-item" href="#">&nbsp;Another action</a>
@@ -252,12 +252,12 @@ include_once 'functions/tables/datatables.php';
                                 </div>
                                 <div class="card-body">
                                     <div class="chart-area">
-                                        <?php //annual_chart('bar'); ?>  
+                                        <?php annual_chart('bar'); ?>  
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col">
+                        <!-- <div class="col">
                             <div class="card shadow mb-4">
                                 <div class="card-header d-flex justify-content-between align-items-center">
                                     <h6 class="text-success fw-bold m-0">Annual Overview</h6>
@@ -274,7 +274,7 @@ include_once 'functions/tables/datatables.php';
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

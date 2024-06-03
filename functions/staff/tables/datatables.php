@@ -86,7 +86,7 @@ function cottage_list(){
     ?>
 
     <div class="col-xl-4">
-        <div class="card"><img class="card-img-top w-100 d-block fit-cover" style="height: 200px;" src="functions/<?php echo $row['picture']; ?>">
+        <div class="card"><img class="card-img-top w-100 d-block fit-cover" style="height: 200px;" src="../img/<?php echo $row['picture']; ?>">
             <div class="card-body p-4">
                 <p class="text-primary card-text mb-0">Cottage #: <?php echo $row['name'].' | '.$row['type']; ?></p>
                 <p class="card-text mb-1">Price Day: ₱<?php echo number_format($row['priceDay'], 2); ?></p>

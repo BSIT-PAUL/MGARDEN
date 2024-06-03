@@ -85,7 +85,7 @@ function total_cottage($id){
 }
 
 function get_sales($period = 'monthly') {
-    global $db;
+    global $db; 
     
     $sql = "SELECT SUM(CASE
         WHEN r.type = 'day' THEN co.priceDay
@@ -109,6 +109,27 @@ function get_sales($period = 'monthly') {
     $result = $statement->fetch();
     
     return number_format($result['total'], 2);
+}
+function get_sales1() {
+    global $db; 
+    
+    $sql = "SELECT SUM(CASE
+        WHEN r.type = 'day' THEN co.priceDay
+        WHEN r.type = 'night' THEN co.priceNight
+        WHEN r.type = 'package' THEN co.pricePackage
+        ELSE 0 
+    END) AS total_sales
+    FROM transactions t
+    JOIN rentals r ON t.id = r.transact_id
+    JOIN cottages co ON r.cottage_id = co.id
+    WHERE t.status = 'Proceed' AND DATE_FORMAT(t.created_at, '%Y-%m') = DATE_FORMAT(CURRENT_DATE, '%Y-%m')";
+    
+
+    $statement = $db->prepare($sql);
+    $statement->execute();
+    $result = $statement->fetch();
+    
+    return number_format($result['total_sales'], 2);
 }
 
 function get_total_customer(){

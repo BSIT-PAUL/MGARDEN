@@ -128,6 +128,23 @@ function cottage_available_list($start, $end, $type){
         $rental = $stmt->fetch(PDO::FETCH_ASSOC);
         $cottageId = $cottage['id'];
         $_SESSION['cottage_id'] = $cottageId;
+        $user_id =$_SESSION['id'];
+
+        // Check if the user already has a transaction in progress
+$sql = "SELECT * FROM transactions WHERE user_id = $user_id AND status = 'processing'";
+$stmt = $db->prepare($sql);
+$stmt->execute();
+$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+if (count($rows) == 0) {
+    $sql1 = "INSERT INTO transactions (user_id, customer_id, payment_status, status, created_at) 
+    VALUES ('$user_id',(SELECT id FROM customers WHERE phone = (SELECT phone FROM users WHERE id = '$user_id') AND address = (SELECT address FROM users WHERE id = '$user_id')),Null, 'Pending', CURDATE())";
+    $stmt1 = $db->prepare($sql1);
+$stmt1->execute();
+}
+
+
+
         
         if (!$rental) {
             ?>
@@ -322,27 +339,29 @@ function sales_report(){
 
 function rentals_list(){
     global $db;
+    $user_id =$_SESSION['id'];
+
     $sql = "SELECT r.id AS rental_id,
-            r.type AS rental_type,
-            c.name AS cottage_name,
-            r.start_datetime AS startdate,
-            r.end_datetime AS enddate,
-            r.created_at AS created_at,
-            r.amount AS amount,
-            t.payment_status AS payment_status,
-            t.id AS transaction_id,
-            u.fullname AS customer_name,
-            CASE
-                WHEN r.type = 'day' THEN c.priceDay
-                WHEN r.type = 'night' THEN c.priceNight
-                WHEN r.type = 'package' THEN c.pricePackage
-                ELSE 0
-            END AS cottage_price
-        FROM rentals r
-        JOIN cottages c ON r.cottage_id = c.id
-        JOIN `transactions` t ON r.transact_id = t.id
-        JOIN `customers` u ON t.customer_id = u.id
-        WHERE t.payment_status = 'UNPAID' OR t.payment_status = 'PARTIALLY PAID';";
+    r.type AS rental_type,
+    c.name AS cottage_name,
+    r.start_datetime AS startdate,
+    r.end_datetime AS enddate,
+    r.created_at AS created_at,
+    r.amount AS amount,
+    t.payment_status AS payment_status,
+    t.id AS transaction_id,
+    u.fullname AS customer_name,t.user_id, 
+    CASE
+        WHEN r.type = 'day' THEN c.priceDay
+        WHEN r.type = 'night' THEN c.priceNight
+        WHEN r.type = 'package' THEN c.pricePackage
+        ELSE 0
+    END AS cottage_price
+FROM rentals r
+JOIN cottages c ON r.cottage_id = c.id
+JOIN `transactions` t ON r.transact_id = t.id
+JOIN `customers` u ON t.customer_id = u.id
+WHERE (t.payment_status = 'UNPAID' OR t.payment_status = 'PARTIALLY PAID') and t.user_id= $user_id;";
     $stmt = $db->prepare($sql);
     $stmt->execute();
     $results = $stmt->fetchAll();
@@ -351,9 +370,8 @@ function rentals_list(){
         $balance = $row['amount'] - $row['cottage_price'];
         ?>
             <tr>
-                <td class="sorting_1"><img class="rounded-circle me-2" width="30" height="30" src="assets/img/icon.png">#<?php echo $row['cottage_name']?></td>
+                <td class="sorting_1"><img class="rounded-circle me-2" width="30" height="30" src="assets/img/icon.png"><?php echo $row['cottage_name']?></td>
                 <td>#<?php echo $row['transaction_id']?></td>
-                <td><?php echo $row['customer_name']?></td>
                 <td><?php echo $row['cottage_price']?></td>
                 <td><?php echo $balance?></td>
                 <td><?php echo $row['rental_type']?></td>
@@ -362,16 +380,56 @@ function rentals_list(){
                 <td><?php echo $row['payment_status']?></td>
                 <td><?php echo $row['created_at']?></td>
                 <td class="text-center">
-                    <button class="btn btn-success mx-1" href="#" data-bs-target="#paid" data-id="<?php echo $row['transaction_id']?>" data-bs-toggle="modal">Mark Paid</button>
-                    <?php
-                        if ($balance < 0){
-                            ?>
-                                <button class="btn btn-warning mx-1" href="#" data-bs-target="#partiallypaid" data-id="<?php echo $row['rental_id']?>" data-transaction="<?php echo $row['transaction_id']?>" data-price="<?php echo $row['cottage_price']?>" data-bs-toggle="modal">Mark Partially Paid</button>
-                            <?php
-                        }
-                    ?>
+
                     <button class="btn btn-danger mx-1" href="#" data-bs-target="#cancel" data-id="<?php echo $row['transaction_id']?>" data-bs-toggle="modal">Cancel</button>
                 </td>
+            </tr>
+    <?php
+    }
+}
+
+function rentals_list1(){
+    global $db;
+    $user_id =$_SESSION['id'];
+
+    $sql = "SELECT r.id AS rental_id,
+    r.type AS rental_type,
+    c.name AS cottage_name,
+    r.start_datetime AS startdate,
+    r.end_datetime AS enddate,
+    r.created_at AS created_at,
+    r.amount AS amount,
+    t.payment_status AS payment_status,
+    t.id AS transaction_id,
+    u.fullname AS customer_name,t.user_id, 
+    CASE
+        WHEN r.type = 'day' THEN c.priceDay
+        WHEN r.type = 'night' THEN c.priceNight
+        WHEN r.type = 'package' THEN c.pricePackage
+        ELSE 0
+    END AS cottage_price
+FROM rentals r
+JOIN cottages c ON r.cottage_id = c.id
+JOIN `transactions` t ON r.transact_id = t.id
+JOIN `customers` u ON t.customer_id = u.id
+WHERE (t.payment_status = 'UNPAID' OR t.payment_status = 'PAID') and t.user_id= $user_id;";
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    $results = $stmt->fetchAll();
+
+    foreach ($results as $row) {
+        $balance = $row['amount'] - $row['cottage_price'];
+        ?>
+            <tr>
+                <td class="sorting_1"><img class="rounded-circle me-2" width="30" height="30" src="assets/img/icon.png"><?php echo $row['cottage_name']?></td>
+                <td>#<?php echo $row['transaction_id']?></td>
+                <td><?php echo $row['cottage_price']?></td>
+                <td><?php echo $row['rental_type']?></td>
+                <td><?php echo $row['startdate']?></td>
+                <td><?php echo $row['enddate']?></td>
+                <td><?php echo $row['payment_status']?></td>
+                <td><?php echo $row['created_at']?></td>
+
             </tr>
     <?php
     }

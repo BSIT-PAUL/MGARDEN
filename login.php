@@ -66,14 +66,36 @@ if (isset($_SESSION['username'])){
                                 </div>
                                 <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Login</button></div>
                                 <p1>Don't have account?</p1><a href="register.php" class="btn btn-link btn-sm" tabindex="-1" role="button" aria-disabled="true">Sign Up</a>
-                            </form>
-                            
+                            </form> 
+                            <p>By clicking Login, you agree with MGARDEN Beach & Resort's<button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal">Privacy Policy</button></p>
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="exampleModalLabel">Privacy Policy</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+ <?php include_once 'privacy.php';?>      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+
+
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bootstrap-select.min.js"></script>

@@ -1,7 +1,6 @@
 <?php
 include_once "functions/authentication.php";
-include_once "functions/get-images.php";
-
+include_once "functions/view-data.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +8,7 @@ include_once "functions/get-images.php";
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Dashboard - MGARDEN</title>
+    <title>Recommendation - MGARDEN</title>
     <meta name="description" content="MGARDEN M Garden Beach Resort's">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/Inter.css">
@@ -19,57 +18,39 @@ include_once "functions/get-images.php";
     <link rel="stylesheet" href="assets/css/Features-Small-Icons-icons.css">
     <link rel="stylesheet" href="assets/css/Simple-Slider-swiper-bundle.min.css">
     <link rel="stylesheet" href="assets/css/Simple-Slider.css">
-
-
-    <!-- Include Swiper CSS -->
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-
 </head>
 
 <body>
-    
-    <nav class="navbar navbar-light navbar-expand-md sticky-top navbar-shrink py-3" id="mainNav">
-        <div class="container"><a class="navbar-brand d-flex align-items-center" href="/"><img src="assets/img/icon.png" width="32"><span> M Garden Beach Resort</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navcol-1">
+<nav class="navbar navbar-light navbar-expand-md sticky-top navbar-shrink py-3" id="mainNav">
+    <div class="container"><a class="navbar-brand d-flex align-items-center" href="/"><img src="assets/img/icon.png" width="32"><span> M Garden Beach Resort</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+  <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link active" href="dashboard.php">Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link" href="recommendation.php">Recommendation</a></li>
+                    <li class="nav-item"><a class="nav-link" href="dashboard.php">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="recommendation.php">Recommendation</a></li>
                     <li class="nav-item"><a class="nav-link" href="rent.php">Reservation List</a></li>
                     <li class="nav-item"><a class="nav-link" href="my-reservation-list.php">My Reservations</a></li>
-                    <li class="nav-item"><a class="nav-link" href="transaction.php">My History</a></li>
-                    </ul><a class="btn btn-primary" type="button" href="../logout.php">Sign Out</a>
+                    <li class="nav-item"><a class="nav-link " href="transaction.php">My History</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link" href="my-account.php">My Account</a></li> -->
+                </ul><a class="btn btn-primary" type="button" href="../logout.php">Sign Out</a>
             </div>
         </div>
     </nav>
 
-    <section class="py-4 py-xl-5">
-        <div class="container">
-            <div class="bg-dark border rounded border-0 border-dark overflow-hidden">
-                <div class="row g-0">
-                    <div class="col-md-6">
-                        <div class="text-white p-4 p-md-5">
-                            <h2 class="fw-bold text-white mb-3">M Garden Beach Resort</h2>
-                            <p class="mb-4">Celebrate with an enjoyable time at M Garden Beach Resort. Enjoy access to the swimming pool, and beach</p>
-                        </div>
+            <div class="container">
+                <h1 class="text-center mb-4">Recommendation</h1>
+                <div class="filtr-controls text-center lead text-uppercase mb-3">
+                    <span class="active d-inline-block mx-3 py-1 position-relative" data-filter="all">all </span>
+                    <span class="d-inline-block mx-3 py-1 position-relative" data-filter="1">Rooms</span>
+                    <span class="d-inline-block mx-3 py-1 position-relative" data-filter="2">Cottage</span>
+                </div>
+                <div class="row filtr-container">
+                   
+                        <?php data_list(); ?> 
                     </div>
-                    <div class="col-md-6 order-first order-md-last" style="min-height: 250px;">
-    <div class="simple-slider">
-        <div class="swiper-container" id="mySwiper">
-            <div class="swiper-wrapper">
-                <?php get_image()?>
-            </div>
-            <div class="swiper-pagination"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-        </div>
-    </div>
-</div>
-
                 </div>
             </div>
-        </div>
-    </section>
-    
+        </section>
+
     <footer class="bg-primary-gradient">
         <div class="container py-4 py-lg-5">
             
@@ -90,30 +71,60 @@ include_once "functions/get-images.php";
             </div>
         </div>
     </footer>
+    <div class="modal fade needs-validation" role="dialog" tabindex="-1" id="add">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Add Cottage</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="functions/transaction-add.php" method="post">
+                        <input type="hidden" name="id" class="form-control" >
+                        <div class="mb-1">
+                            <label class="form-label">TYPE</label>
+                            <select class="form-select" name="type">
+                                <optgroup label="SELECT TYPE">
+                                    <option value="DAY" selected="">DAY</option>
+                                    <option value="NIGHT">NIGHT</option>
+                                    <option value="PACKAGE">PACKAGE</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                        <div class="row">
+                            <label class="form-label">PACKS</label>
+                            <br>
+                            <div class="col-md-6"><input type="number" class="form-control" id="inputKids" placeholder="Kid/s" required></div>
+                            <div class="col-md-6"><input type="number" class="form-control" id="inputAdult" placeholder="Adult/s" required></div>
+                        </div>
+                        <div class="mb-1"><label class="form-label">Rental Date &amp; Time (start, end)</label>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-6"><input class="form-control" name="start" required type="date"  /></div>
+                                    <div class="col-md-6"><input class="form-control" name="end" required type="date"  /></div>
+                                </div>
+                            </div>
+                        </div>
+
+                </div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="submit">Save</button></div>
+                </form>
+            </div>
+        </div>
+    </div>
     
-<!-- Include Swiper JS -->
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="assets/js/jquery.min.js"></script>
+    <script>
+        $('button[data-bs-target="#add"]').on('click', function() {
+            var id = $(this).data('id');
+            console.log(id);
+            $('input[name="id"]').each(function() {
+                $(this).val(id);
+            });
+        });
+    </script>
+    <script src="assets/js/-Filterable-Cards--Filterable-Cards.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bold-and-bright.js"></script>
-    <script src="assets/js/Simple-Slider.js"></script>
-    <script src="assets/js/Simple-Slider-swiper-bundle.min.js"></script>
 </body>
 
-</html><script>
-    var swiper = new Swiper('#mySwiper', {
-        loop: true, // Enable looping
-        autoplay: {
-            delay: 1000, // Delay between slides in milliseconds
-            disableOnInteraction: false, // Allow manual navigation to override autoplay
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true, // Allow pagination bullets to be clickable
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-    });
-</script>
+</html>
